@@ -22,6 +22,8 @@ public class Program
 
         // code here
         answer = Combinations(n, k);
+        return answer;
+    }
         // create and use Combinations(n, k);
         int Combinations(int n, int k)
         {
@@ -38,10 +40,7 @@ public class Program
             return l;
 
         }
-        // end
-
-        return answer;
-    }
+    // end
 
     public int Task_1_2(double[] first, double[] second)
     {
@@ -60,6 +59,8 @@ public class Program
             answer = 1;
         }
         else answer = 0;
+        return answer;
+    }
         // create and use GeronArea(a, b, c);
         double GeronArea(double a, double b, double c)
         {
@@ -71,8 +72,7 @@ public class Program
         // end
 
         // first = 1, second = 2, equal = 0, error = -1
-        return answer;
-    }
+        
 
     public int Task_1_3a(double v1, double a1, double v2, double a2, int time)
     {
@@ -95,7 +95,7 @@ public class Program
     {
         if (t < 0) return 0;
         return v * t + a * t * t / 2;
-
+        
     }
     public int Task_1_3b(double v1, double a1, double v2, double a2)
     {
@@ -216,7 +216,7 @@ public class Program
         for (int i = 0; i < a.Length; i++) { ans[n++] = a[i]; }
         for (int i = 0; i < b.Length; i++) { ans[n++] = b[i]; }
         A = ans;
-    } 
+    }
         // FindMax(array);
         int FindMax(int[] array)
         {
@@ -257,7 +257,7 @@ public class Program
 
         A = SortArrayPart(A, FindMax(A) + 1);
         B = SortArrayPart(B, FindMax(B) + 1);
-        
+    }
         // create and use SortArrayPart(array, startIndex);
         int[] SortArrayPart(int[] array, int startIndex)
         {
@@ -276,7 +276,7 @@ public class Program
             return array;
         }
         // end
-    }
+    
 
     public int[] Task_2_9(int[,] A, int[,] C)
     {
@@ -362,6 +362,7 @@ public class Program
             A[i, maxim_a] = B[i, maxim_b];
             B[i, maxim_b] = temp;
         }
+    }
         // create and use FindMaxColumnIndex(matrix);
         int FindMaxColumnIndex(int[,] matrix)
         {
@@ -377,7 +378,7 @@ public class Program
             return maxim_j;
         }
         // end
-    }
+    
 
     public void Task_2_13(ref int[,] matrix)
     {
@@ -429,6 +430,7 @@ public class Program
         // code here
         A = SortNegative(A);
         B = SortNegative(B);
+    }
         // create and use SortNegative(array);
         int[] SortNegative(int[] array)
         {
@@ -458,7 +460,7 @@ public class Program
             return array;
         }
         // end
-    }
+    
 
     public void Task_2_17(int[,] A, int[,] B)
     {
@@ -474,6 +476,7 @@ public class Program
         // code here
         SortDiagonal(A);
         SortDiagonal(B);
+    }
         // create and use SortDiagonal(matrix);
         void SortDiagonal(int[,] matrix)
         {
@@ -486,7 +489,7 @@ public class Program
             }
         }
         // end
-    }
+
 
     public void Task_2_19(ref int[,] matrix)
     {
@@ -501,6 +504,7 @@ public class Program
         // code here
         A = NegativeIndex(ref A);
         B = NegativeIndex(ref B);
+    }
         // use RemoveColumn(matrix, columnIndex); from 2_10
         int[,] NegativeIndex(ref int[,] matrix)
         {
@@ -516,7 +520,7 @@ public class Program
             return matrix;
         }
         // end
-    }
+    
 
     public void Task_2_21(int[,] A, int[,] B, out int[] answerA, out int[] answerB)
     {
@@ -590,6 +594,7 @@ public class Program
         SwapColumnDiagonal(A, column);
         FindMaxIndex(B, out row, out column);
         SwapColumnDiagonal(B, column);
+    }
         // use FindMaxIndex(matrix, out row, out column); like in 2_1
         void FindMaxIndex(int[,] matrix, out int row, out int column)
         {
@@ -602,7 +607,7 @@ public class Program
                 }
             }
         }
-    }
+
 
     // create and use SwapColumnDiagonal(matrix, columnIndex);
     void SwapColumnDiagonal(int[,] matrix, int columnIndex)
@@ -641,6 +646,7 @@ public class Program
             A[a, j] = B[b, j];
             B[b, j] = temp;
         }
+    }
         // create and use FindRowWithMaxNegativeCount(matrix); like in 2_25
         int FindRowWithMaxNegativeCount(int[,] matrix)
         {
@@ -659,7 +665,7 @@ public class Program
         // in FindRowWithMaxNegativeCount use CountNegativeInRow(matrix, rowIndex); from 2_22
 
         // end
-    }
+    
 
     public void Task_2_27(int[,] A, int[,] B)
     {
@@ -700,6 +706,7 @@ public class Program
         // code here
         answerFirst = Finish(first);
         answerSecond = Finish(second);
+    }
         int[,] Finish(int[] array)
         {
             int[,] answer;
@@ -728,7 +735,7 @@ public class Program
                 }
             }
             return answer;
-        }
+        
 
 
         // use FindSequence(array, A, B); from Task_2_28a or entirely Task_2_28a
@@ -742,6 +749,7 @@ public class Program
         // code here
         answerFirst = Answer(first);
         answerSecond = Answer(second);
+    }
         int[] Answer(int[] array)
         {
             int a = 0, b = 0;
@@ -764,7 +772,7 @@ public class Program
         // A and B - start and end indexes of elements from array for search
 
         // end
-    }
+    
     #endregion
 
     #region Level 3
