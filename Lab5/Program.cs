@@ -1165,10 +1165,11 @@ public class Program
         answer[index](a);
         return a;
     }
-    void Add(double[,] matrix, int a,int b,double c)
+    void Add(double[,] matrix, int a,int b)
     {
         for (int j=0;j< matrix.GetLength(1); j++)
         {
+            double c=-matrix[b, a] / matrix[a, a];
             matrix[b, j] += c * matrix[a, j];
         }
     }
@@ -1182,8 +1183,7 @@ public class Program
         {
             for (int j = i + 1; j < matrix.GetLength(0); j++)
             {
-                double c = -matrix[j,i]/matrix[i,i];
-                Add(matrix, i, j, c);
+                Add(matrix, i, j);
             }
         }
     }
@@ -1194,8 +1194,7 @@ public class Program
         {
             for (int j = i - 1; j >= 0; j--)
             {
-                double c = -matrix[j, i] / matrix[i, i];
-                Add(matrix, i, j, c);
+                Add(matrix, i, j);
             }
             }
         }
@@ -1208,8 +1207,7 @@ public class Program
         {
             for (int j = i - 1; j >= 0; j--)
             {
-                double c = -matrix[j, i] / matrix[i, i];
-                Add(matrix, i, j, c);
+                Add(matrix, i, j);
             }
         }
         }
@@ -1221,8 +1219,7 @@ public class Program
         {
             for (int j = i - 1; j >= 0; j--)
             {
-                double c = -matrix[j, i] / matrix[i, i];
-                Add(matrix, i, j, c);
+                Add(matrix, i, j);
             }
         }
     }
