@@ -21,14 +21,11 @@ public class Program
         long answer = 0;
 
         // code here
-        if (n <= 0 || k <= 0) return answer;
         answer = Combinations(n, k);
         // create and use Combinations(n, k);
         int Combinations(int n, int k)
         {
-            int j = Factorial(n) / (Factorial(k) * Factorial(n - k));
-            return j;
-
+            return Factorial(n) / (Factorial(k) * Factorial(n - k));
         }
         // create and use Factorial(n);
         int Factorial(int n)
@@ -51,7 +48,6 @@ public class Program
         int answer = 0;
 
         // code here
-        if (first == null || second == null) return answer;
         double f = GeronArea(first[0], first[1], first[2]);
         double s = GeronArea(second[0], second[1], second[2]);
         if (f < 0 || s < 0) { answer = -1; }
@@ -98,8 +94,8 @@ public class Program
     double GetDistance(double v, double a, double t)
     {
         if (t < 0) return 0;
-        double S = v * t + a * t * t / 2;
-        return S;
+        return v * t + a * t * t / 2;
+
     }
     public int Task_1_3b(double v1, double a1, double v2, double a2)
     {
@@ -220,6 +216,7 @@ public class Program
         for (int i = 0; i < a.Length; i++) { ans[n++] = a[i]; }
         for (int i = 0; i < b.Length; i++) { ans[n++] = b[i]; }
         A = ans;
+    } 
         // FindMax(array);
         int FindMax(int[] array)
         {
@@ -242,7 +239,7 @@ public class Program
             return a;
         }
         // end
-    }
+    
 
     public void Task_2_7(ref int[,] B, int[,] C)
     {
@@ -260,15 +257,7 @@ public class Program
 
         A = SortArrayPart(A, FindMax(A) + 1);
         B = SortArrayPart(B, FindMax(B) + 1);
-        int FindMax(int[] array)
-        {
-            int maxim = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] > array[maxim]) maxim = i;
-            }
-            return maxim;
-        }
+        
         // create and use SortArrayPart(array, startIndex);
         int[] SortArrayPart(int[] array, int startIndex)
         {
@@ -381,8 +370,8 @@ public class Program
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] > matrix[maxim_i, maxim_j]) { maxim_i = i; maxim_j = j; }
-
+                    if (matrix[i, j] > matrix[maxim_i, maxim_j]) 
+                    { maxim_i = i; maxim_j = j; }
                 }
             }
             return maxim_j;
@@ -1050,10 +1039,10 @@ public class Program
         cols = null;
         // code here
 
-        FindNegatives(matrix, Answer, FindMaxNegativePerColumn, out rows, out cols);
+        FindNegatives(matrix, Ans, FindMaxNegativePerColumn, out rows, out cols);
     } 
     public delegate int [] GetNegativeArray(int [,]matrix);
-    int[] Answer(int[,] matrix)
+    int[] Ans(int[,] matrix)
     {
         int[] rc = new int[matrix.GetLength(0)];
         for (int i = 0; i < matrix.GetLength(0); i++)
@@ -1168,7 +1157,15 @@ public class Program
         answer[index](a);
         return a;
     }
-    delegate void MatrixConverter(double [,]matrix);
+    void Add(double[,] matrix, int a,int b,double c)
+    {
+        for (int j=0;j< matrix.GetLength(1); j++)
+        {
+            matrix[b, j] += c * matrix[a, j];
+        }
+    }
+     delegate void MatrixConverter(double [,]matrix);
+    
     // create public delegate MatrixConverter(matrix);
     // create and use method ToUpperTriangular(matrix);
     void ToUpperTriangular(double[,] matrix)
@@ -1178,7 +1175,7 @@ public class Program
             for (int j = i + 1; j < matrix.GetLength(0); j++)
             {
                 double c = -matrix[j,i]/matrix[i,i];
-                for (int k = 0; k < matrix.GetLength(1); j++) matrix[j, k] += c * matrix[i, k];
+                Add(matrix, i, j, c);
             }
         }
     }
@@ -1190,7 +1187,7 @@ public class Program
             for (int j = i - 1; j >= 0; j--)
             {
                 double c = -matrix[j, i] / matrix[i, i];
-                for (int k = 0; k < matrix.GetLength(1); j++) matrix[j, k] += c * matrix[i, k];
+                Add(matrix, i, j, c);
             }
             }
         }
@@ -1204,7 +1201,7 @@ public class Program
             for (int j = i - 1; j >= 0; j--)
             {
                 double c = -matrix[j, i] / matrix[i, i];
-                for (int k = 0; k < matrix.GetLength(1); j++) matrix[j, k] += c * matrix[i, k];
+                Add(matrix, i, j, c);
             }
         }
         }
@@ -1217,7 +1214,7 @@ public class Program
             for (int j = i - 1; j >= 0; j--)
             {
                 double c = -matrix[j, i] / matrix[i, i];
-                for (int k = 0; k < matrix.GetLength(1); j++) matrix[j, k] += c * matrix[i, k];
+                Add(matrix, i, j, c);
             }
         }
     }
